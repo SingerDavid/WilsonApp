@@ -4,19 +4,112 @@
   <title>Wilson</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
-  <link rel="stylesheet" href="/stylesheets/screen.css" />
+  <link rel="stylesheet" href="../stylesheets/screen.css" />
 </head>
 <body>
   <header>
-    <a href="/" class="logo"><i class="fas fa-couch"></i> Wilson</a>
+    <img src="/img/logo.png" alt="Wilson logo" id="logo">
+    <h1 id="Title Page">Demo Wislon App</h1>
   </header>
   <main id="clientPage">
-    <!-- David  -->
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home Page</a></li>
+        <li><a href="#">Learn More</a></li>
+        <li><a href="../fitter/index.html">Fitter Login</a></li>
+      </ul>
+    </nav>
+
+    <form class="">
+      <label for="clientName"><strong>Name</strong><span>*</span></label>
+      <input type="text" placeholder="Enter Full Name" name="clientName" required><br>
+      <label for="clientheight"><strong>Please enter your height:</strong><span>*</span></label><br>
+      <input class="height" type="text" name="clientheight1" placeholder="Feet" required><br>
+      <input class="height" type="text" name="clientheight2" placeholder="Inches" required><br>
+      <h2 class="questionTitle">Dexterity?<span>*</span><span class="help">?</span></h2>
+      <input type="radio" id="dexterityleft" name="dexterity" value="left" required>
+      <label for="dexterityleft">Left Handed</label><br>
+      <input type="radio" id="dexterityright" name="dexterity" value="right" required>
+      <label for="dexterityright">Right Handed</label><br>
+      <h2 class="questionTitle">Do you currently have any swing stats?<span>*</span><span class="help">?</span></h2>
+      <input type="radio" id="yes" name="statsYN" value="yes" required>
+      <label for="yes">Yes</label><br>
+      <fieldset id="yesStats" hidden>
+        <label for="clubLength">Club Length:</label><br>
+        <input id="clubLength" type="text" name="stats"><span> inches</span><br>
+        <label for="lieAngle">Lie Angle:</label><br>
+        <input id="lieAngle" type="text" name="stats"><span> degrees</span><br>
+        <label for="ballImpact">Ball Impact:</label><br>
+        <input id="ballImpact" type="text" name="stats"><br>
+        <label for="spin">Ball Spin:</label><br>
+        <input id="spin" type="text" name="stats">
+      </fieldset>
+      <input type="radio" id="no" name="statsYN" value="no" required>
+      <label for="no">No</label><br>
+
+      <h2 class="questionTitle">What is your current playing level?<span>*</span><span class="help"></span></h2>
+      <input type="radio" id="Beginner" name="skill" value="Beginner" required>
+      <label for="Beginner">Beginner: Basic Fitting</label><br>
+      <input type="radio" id="Intermediate" name="skill" value="Intermediate" required>
+      <label for="Intermediate">Intermediate: Basic Fitting</label><br>
+      <input type="radio" id="Expert" name="skill" value="Expert" required>
+      <label for="Expert">Expert: Basic Fitting</label>
+
+      <!-- If we want a multi selection: https://stackoverflow.com/questions/19206919/how-to-create-checkbox-inside-dropdown -->
+      <h2 class="questionTitle">Where do you play most often?<span>*</span><span class="help">?</span></h2>
+      <select id="location" name="location" placeholder="Select" required>
+        <option selected value="">--Please choose an option--</option>
+        <option>No Where</option>
+        <option>Columbus Park Golf Course</option>
+        <option>Sydney R. Marovitz Golf Course</option>
+        <option>Marquette Park Golf Course, Marquette Park Course</option>
+        <option>Top Golf</option>
+      </select><br>
+      <label for="otherLocation">Other:</label><br>
+      <input type="text" id="otherLocation" name="location">
+
+      <h2 class="questionTitle">How often do you play?<span>*</span><span class="help">?</span></h2>
+      <input type="radio" id="daily" name="often" value="daily" required>
+      <label for="daily">Daily</label><br>
+      <input type="radio" id="weekly" name="often" value="weekly" required>
+      <label for="weekly">Weekly</label><br>
+      <input type="radio" id="monthly" name="often" value="monthly" required>
+      <label for="monthly">Monthly</label><br>
+      <input type="radio" id="yearly" name="often" value="yearly" required>
+      <label for="yearly">yearly</label><br>
+      <input type="radio" id="never" name="often" value="never" required>
+      <label for="never">I have never golfed before.</label><br>
+
+      <h2 class="questionTitle">Do you have any injuries that may affect your swing?<span>*</span><span class="help">?</span></h2>
+      <input type="radio" id="yes" name="injury" value="yes" required>
+      <label for="yes">Yes</label><br>
+      <fieldset id="hasInjury" hidden>
+        <label for="injuryResponse">Please Specify:</label><br>
+        <textarea id="injuryResponse" name="injuryResponse" rows="8" cols="80"></textarea>
+      </fieldset>
+      <input type="radio" id="no" name="injury" value="no" required>
+      <label for="no">No</label><br>
+
+      <h2 class="questionTitle">What are your goals for this fitting/golfing?<span class="help">?</span></h2>
+      <label for="shortterm">Short Term:</label><br>
+      <textarea id="shorterm" name="shortterm" rows="8" cols="80"></textarea><br>
+      <label for="longterm">Long Term:</label><br>
+      <textarea id="longterm" name="longterm" rows="8" cols="80"></textarea><br>
+
+      <h2 class="questionTitle">How would you like to meet with a fitter?<span>*</span><span class="help">?</span></h2>
+      <input type="radio" id="inperson" name="meet" value="inperson" required>
+      <label for="inperson">In-person</label><br>
+      <input type="radio" id="virtual" name="meet" value="virtual" required>
+      <label for="virtual">Virtual</label><br>
+
+      <input id="submit" type="submit" value="Submit">
+
+    </form>
 
   </main>
   <footer>
 
   </footer>
-  <script src="/javascripts/main.js"></script>
+  <script src="../javascripts/main.js"></script>
 </body>
 </html>
