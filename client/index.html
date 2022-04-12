@@ -59,11 +59,11 @@
       <h2 class="questionTitle">Where do you play most often?<span>*</span><span class="help">?</span></h2>
       <select id="location" name="location" placeholder="Select" required>
         <option selected value="">--Please choose an option--</option>
-        <option>No Where</option>
-        <option>Columbus Park Golf Course</option>
-        <option>Sydney R. Marovitz Golf Course</option>
-        <option>Marquette Park Golf Course, Marquette Park Course</option>
-        <option>Top Golf</option>
+        <option value="No Where">No Where</option>
+        <option value="Columbus Park Golf Course">Columbus Park Golf Course</option>
+        <option value="Sydney R. Marovitz Golf Course">Sydney R. Marovitz Golf Course</option>
+        <option value="Marquette Park Golf Course, Marquette Park Course">Marquette Park Golf Course, Marquette Park Course</option>
+        <option value="Top Golf">Top Golf</option>
       </select><br>
       <label for="otherLocation">Other:</label><br>
       <input type="text" id="otherLocation" name="location">
@@ -97,7 +97,7 @@
       <textarea id="longterm" name="longterm" rows="8" cols="80"></textarea><br>
 
       <h2 class="questionTitle">How would you like to meet with a fitter?<span>*</span><span class="help">?</span></h2>
-      <input type="radio" id="inperson" name="meet" value="inperson" required>
+      <input type="radio" id="inperson" name="meet" value="in-person" required>
       <label for="inperson">In-person</label><br>
       <input type="radio" id="virtual" name="meet" value="virtual" required>
       <label for="virtual">Virtual</label><br>
