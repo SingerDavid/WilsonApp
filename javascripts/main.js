@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       function getSession() {
         var obj = {};
-        if (typeof sessionStorage.myObj !== "undefined") {
-          obj = JSON.parse(sessionStorage.myObj);
+        if (typeof sessionStorage.value !== "undefined") {
+          obj = JSON.parse(sessionStorage.value);
         }
         return obj;
       }
