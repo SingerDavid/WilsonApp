@@ -83,3 +83,68 @@ textarea, select {
   max-width: 100%;
   margin-bottom: 1em;
 }
+
+.display ul{
+  display: none;
+  border: solid black 0.2em;
+  max-width: 300px;
+  margin: auto;
+  text-decoration: none;
+}
+
+.display li{
+  padding: 10px;
+  word-break: break-all;
+}
+
+.dataTitle{
+  background-color: lightgray;
+  font-weight: bold;
+}
+.userData {
+  text-indent: 1em;
+}
+
+.display h3 {
+  max-width: 300px;
+  margin: auto;
+  display: block;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5em;
+  background-color: red;
+  margin-bottom: 0.5em;
+}
+
+.display span{
+  max-width: 300px;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
+  position: relative;
+  bottom: 1.7em;
+  right: 1.5em;
+  float: right;
+}
+
+.display h3:hover{
+  cursor: pointer;
+}
+
+.clientForm fieldset{
+  display: none;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer{
+  margin-top: auto;
+  bottom: 0;
+  text-align: center;
+}
