@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" id="client-page">
 <head>
-  <title>Wilson</title>
+  <title>Wilson Demo</title>
+  <link rel="icon" type="image/x-icon" href="../img/logo.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
   <link rel="stylesheet" href="../stylesheets/screen.css" />
@@ -14,6 +15,7 @@
   <main id="clientPage">
     <nav>
       <ul>
+        <img src="../img/logo.png" alt="Wilson logo" id="logoNav">
         <li><a href="../index.html">Home Page</a></li>
         <li><a href="#">Learn More</a></li>
         <li><a href="../fitter/index.html">Fitter Login</a></li>
@@ -33,6 +35,8 @@
       <h2 class="questionTitle">Do you currently have any swing stats?<span>*</span><span class="help">?</span></h2>
       <input type="radio" id="yes" name="Existing Stats:" value="yes" required>
       <label for="yes">Yes</label><br>
+      <input type="radio" id="no" name="Existing Stats:" value="no" required>
+      <label for="no">No</label><br>
       <fieldset id="yesStats">
         <label for="clubLength">Club Length:</label><br>
         <input id="clubLength" type="text" name="Club Length:"><span> inches</span><br>
@@ -43,8 +47,6 @@
         <label for="spin">Ball Spin:</label><br>
         <input id="spin" type="text" name="Ball Spin">
       </fieldset>
-      <input type="radio" id="no" name="Existing Stats:" value="no" required>
-      <label for="no">No</label><br>
 
       <h2 class="questionTitle">What is your current playing level?<span>*</span><span class="help"></span></h2>
       <input type="radio" id="Beginner" name="Skill Level:" value="Beginner" required>
@@ -78,14 +80,14 @@
       <label for="never">I have never golfed before.</label><br>
 
       <h2 class="questionTitle">Do you have any injuries that may affect your swing?<span>*</span><span class="help">?</span></h2>
-      <input type="radio" id="yes" name="Has Injury:" value="yes" required>
-      <label for="yes">Yes</label><br>
+      <input type="radio" id="yesInjury" name="Has Injury:" value="yes" required>
+      <label for="yesInjury">Yes</label><br>
+      <input type="radio" id="noInjury" name="Has Injury:" value="no" required>
+      <label for="noInjury">No</label><br>
       <fieldset id="hasInjury">
         <label for="injuryResponse">Please Specify:</label><br>
         <textarea id="injuryResponse" name="Injury Details:" rows="8" cols="80"></textarea>
       </fieldset>
-      <input type="radio" id="no" name="Has Injury:" value="no" required>
-      <label for="no">No</label><br>
 
       <h2 class="questionTitle">What are your goals for this fitting/golfing?<span class="help">?</span></h2>
       <label for="shortterm">Short Term:</label><br>

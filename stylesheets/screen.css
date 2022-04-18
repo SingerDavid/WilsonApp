@@ -81,6 +81,7 @@ h2{
 
 textarea, select {
   max-width: 100%;
+  width: 300px;
   margin-bottom: 1em;
 }
 
@@ -134,6 +135,7 @@ textarea, select {
 }
 
 .clientForm fieldset{
+  margin-top: 0.5em;
   display: none;
 }
 
@@ -147,4 +149,125 @@ footer{
   margin-top: auto;
   bottom: 0;
   text-align: center;
+}
+
+
+@media only screen and (min-width: 1280px){
+  header {
+    position: absolute;
+    border-bottom: none;
+    left: -999em;
+  }
+  header h1 {
+    display: none;
+  }
+  header img {
+    display: none;
+  }
+  #client-page main{
+    background-image: url('../img/background2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  form{
+    padding: 1em;
+    border: black solid 0.2em;
+    width: 400px;
+    align-self: center;
+    background-color: white;
+  }
+
+  nav{
+    margin-top: 0.5em;
+    display: flex;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: #ff1919 solid 0.2em;
+  }
+
+  nav img {
+    display: float;
+    position: absolute;
+    left: 0;
+    margin-left: 2em;
+    width: 70px;
+  }
+
+  nav ul{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  nav li{
+    background-color: white;
+    width: 300px;
+    transition: 0.3s;
+    margin-bottom: 0.1em;
+    margin-right: 0.8em;
+    padding: 0.4em;
+    border-radius: 0;
+    border-bottom: black solid 0.2em;
+  }
+
+  nav li a{
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+
+  nav li:hover{
+    background-color: white;
+  }
+
+  #clientPage{
+    display: flex;
+    flex-direction: column;
+  }
+  .display ul{
+    position: absolute;
+    left: -999em;
+    display: none;
+  }
+  form{
+    padding: 1em;
+    border: black solid 0.2em;
+    width: 400px;
+    align-self: center;
+  }
+  table {
+    margin: auto;
+    width: 80%;
+    max-width: 800px;
+  }
+  #displayTableOne, #displayTableTwo, #displayTableNew{
+    display: none;
+    margin-bottom: 1em;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: separate;
+  }
+  th, td {
+    padding: 5px;
+    text-align: left;
+  }
+  .display h3 {
+    max-width: 600px;
+  }
+  .display span{
+    right: 38%;
+  }
+  #clientNew{
+    position: relative;
+    left: -0.1em;
+  }
+  #spanNew{
+    right: 38.5%;
+  }
+
 }

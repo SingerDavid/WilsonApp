@@ -56,7 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('This is executing the client page');
       const form = document.querySelector('form');
       form.addEventListener('submit', handleSubmit);
-    }
+
+      let stats = document.getElementById('yesStats');
+      document.getElementById('yes').onclick = function() {
+        stats.style.display = 'block';
+      }
+      document.getElementById('no').onclick = function() {
+        stats.style.display = 'none';
+      }
+
+      let injury = document.getElementById('hasInjury');
+      document.getElementById('yesInjury').onclick = function() {
+        injury.style.display = 'block';
+      }
+      document.getElementById('noInjury').onclick = function() {
+        injury.style.display = 'none';
+      }
+    }//end of client page function
+
 
     if (document.getElementById('fitter-page')){
       console.log('This is executing the fitter page');
@@ -78,86 +95,179 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let liParent = document.querySelector('#container ul');
 
-      Object.keys(value).forEach((item, index) => {
-        if (index === 0){
-          console.log("executing for name creation");
-          let h3 = document.createElement('h3')
-          h3.setAttribute('id', 'clientNew');
-          h3.innerHTML = value[item];
-          container.appendChild(h3);
-          let span = document.createElement('span')
-          span.setAttribute('id', 'spanNew');
-          span.innerHTML = '+';
-          container.appendChild(span);
-          console.log('This is the new name title --- ', value[item]);
-          //This skips the first iteration, aka the name that we just used.
-          return;
+      let table = document.createElement('table');
+      table.setAttribute('id', 'displayTableNew');
+
+      const counter = 1;
+
+      if (counter === 1){
+        console.log('running inside if statement');
+        Object.keys(value).forEach((item, index) => {
+          if (index === 0){
+            console.log("executing for name creation");
+            let h3 = document.createElement('h3')
+            h3.setAttribute('id', 'clientNew');
+            h3.innerHTML = value[item];
+            container.appendChild(h3);
+            let span = document.createElement('span')
+            span.setAttribute('id', 'spanNew');
+            span.innerHTML = '+';
+            container.appendChild(span);
+            console.log('This is the new name title --- ', value[item]);
+            //This skips the first iteration, aka the name that we just used.
+            return;
+          }
+          if ((value[item] === null) || (value[item] === '')){
+            console.log(item, "-- Skipping item, left blank or non-applicable")
+            return;
+          }
+          //append table after title creation
+          container.appendChild(table);
+
+          //create tr
+          let tr = document.createElement('tr');
+          table.appendChild(tr);
+
+          //add th and td to tr
+          let th = document.createElement('th');
+          th.innerHTML = item;
+          tr.appendChild(th);
+
+          let td = document.createElement('td');
+          td.innerHTML = value[item];
+          tr.appendChild(td);
+        });
+
+        if ((sessionStorage.value != null) || (sessionStorage.value != '')){
+          document.getElementById('clientNew').onclick = function(e) {
+            e.preventDefault();
+            let resultsNew = document.getElementById('displayTableNew');
+            let spanNew = document.getElementById('spanNew');
+
+            if (resultsNew.style.display == 'none'){
+              resultsNew.style.display = 'block';
+              spanNew.innerHTML = '-'
+            }
+            else{
+              resultsNew.style.display = 'none';
+              spanNew.innerHTML = '+'
+            }
+          }
         }
-        if ((value[item] === null) || (value[item] === '')){
-          console.log(item, "-- Skipping item, left blank or non-applicable")
-          return;
+      }//end of THE IF STATEMENT
+      else {
+        Object.keys(value).forEach((item, index) => {
+          if (index === 0){
+            console.log("executing for name creation");
+            let h3 = document.createElement('h3')
+            h3.setAttribute('id', 'clientNew');
+            h3.innerHTML = value[item];
+            container.appendChild(h3);
+            let span = document.createElement('span')
+            span.setAttribute('id', 'spanNew');
+            span.innerHTML = '+';
+            container.appendChild(span);
+            console.log('This is the new name title --- ', value[item]);
+            //This skips the first iteration, aka the name that we just used.
+            return;
+          }
+          if ((value[item] === null) || (value[item] === '')){
+            console.log(item, "-- Skipping item, left blank or non-applicable")
+            return;
+          }
+          //append Ul after title creation
+          container.appendChild(ul);
+          let liParent = document.querySelector('#container ul');
+
+          let liTitle = document.createElement('li')
+          liTitle.classList.add('dataTitle');
+          liTitle.innerHTML = item;
+          liParent.appendChild(liTitle);
+
+          let liData = document.createElement('li')
+          liData.classList.add('userData');
+          liData.innerHTML = value[item];
+          liParent.appendChild(liData);
+        });
+
+        if ((sessionStorage.value != null) || (sessionStorage.value != '')){
+          document.getElementById('clientNew').onclick = function(e) {
+            e.preventDefault();
+            let resultsNew = document.getElementById('displayUlNew');
+            let spanNew = document.getElementById('spanNew');
+
+            if (resultsNew.style.display == 'none'){
+              resultsNew.style.display = 'block';
+              spanNew.innerHTML = '-'
+            }
+            else{
+              resultsNew.style.display = 'none';
+              spanNew.innerHTML = '+'
+            }
+          }
         }
-        //append Ul after title creation
-        container.appendChild(ul);
-        let liParent = document.querySelector('#container ul');
-
-        let liTitle = document.createElement('li')
-        liTitle.classList.add('dataTitle');
-        liTitle.innerHTML = item;
-        liParent.appendChild(liTitle);
-
-        let liData = document.createElement('li')
-        liData.classList.add('userData');
-        liData.innerHTML = value[item];
-        liParent.appendChild(liData);
-      });
+      }//END OF THE ELSE STATEMENT
 
 
-      document.getElementById('clientOne').onclick = function(event) {
-        event.preventDefault();
+
+      document.getElementById('clientOne').onclick = function(e) {
+        e.preventDefault();
         let resultsOne = document.getElementById('displayUlOne');
         let spanOne = document.getElementById('spanOne');
 
-        if (resultsOne.style.display == 'none'){
-          resultsOne.style.display = 'block';
-          spanOne.innerHTML = '-'
-        }
+        let resultsComputerOne = document.getElementById('displayTableOne');
+
+        if (window.matchMedia('(min-width: 1280px)')){
+          if (resultsComputerOne.style.display == 'none'){
+            resultsComputerOne.style.display = 'block';
+            spanOne.innerHTML = '-'
+          }
+          else{
+            resultsComputerOne.style.display = 'none';
+            spanOne.innerHTML = '+'
+          }
+        }//end minwidth media query
         else{
-          resultsOne.style.display = 'none';
-          spanOne.innerHTML = '+'
+          if (resultsOne.style.display == 'none'){
+            resultsOne.style.display = 'block';
+            spanOne.innerHTML = '-'
+          }
+          else{
+            resultsOne.style.display = 'none';
+            spanOne.innerHTML = '+'
+          }
         }
-      }
+      }//end onclick function
 
       let displayTwo = document.getElementById('clientTwo')
-      displayTwo.addEventListener('click', function(event) {
-        event.preventDefault();
+      displayTwo.addEventListener('click', function(e) {
+        e.preventDefault();
         let resultsTwo = document.getElementById('displayUlTwo');
         let spanTwo = document.getElementById('spanTwo');
 
-        if (resultsTwo.style.display == 'none'){
-          resultsTwo.style.display = 'block';
-          spanTwo.innerHTML = '-'
-        }
-        else{
-          resultsTwo.style.display = 'none';
-          spanTwo.innerHTML = '+'
-        }
-      });
+        let resultsComputerTwo = document.getElementById('displayTableTwo');
 
-      document.getElementById('clientNew').onclick = function(event) {
-        event.preventDefault();
-        let resultsNew = document.getElementById('displayUlNew');
-        let spanNew = document.getElementById('spanNew');
-
-        if (resultsNew.style.display == 'none'){
-          resultsNew.style.display = 'block';
-          spanNew.innerHTML = '-'
-        }
+        if (window.matchMedia('(min-width: 1000px)')){
+          if (resultsComputerTwo.style.display == 'none'){
+            resultsComputerTwo.style.display = 'block';
+            spanTwo.innerHTML = '-'
+          }
+          else{
+            resultsComputerTwo.style.display = 'none';
+            spanTwo.innerHTML = '+'
+          }
+        }//end minwidth media query
         else{
-          resultsNew.style.display = 'none';
-          spanNew.innerHTML = '+'
+          if (resultsTwo.style.display == 'none'){
+            resultsTwo.style.display = 'block';
+            spanTwo.innerHTML = '-'
+          }
+          else{
+            resultsTwo.style.display = 'none';
+            spanTwo.innerHTML = '+'
+          }
         }
-      }
+      }); //end onclick event listener
 
     }//end of fitter page execution
 
