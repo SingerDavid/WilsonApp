@@ -98,9 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let table = document.createElement('table');
       table.setAttribute('id', 'displayTableNew');
 
-      const counter = 1;
-
-      if (counter === 1){
+      if (window.matchMedia('(min-width: 1000px)')){
         console.log('running inside if statement');
         Object.keys(value).forEach((item, index) => {
           if (index === 0){
@@ -137,23 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
           td.innerHTML = value[item];
           tr.appendChild(td);
         });
-
-        if ((sessionStorage.value != null) || (sessionStorage.value != '')){
-          document.getElementById('clientNew').onclick = function(e) {
-            e.preventDefault();
-            let resultsNew = document.getElementById('displayTableNew');
-            let spanNew = document.getElementById('spanNew');
-
-            if (resultsNew.style.display == 'none'){
-              resultsNew.style.display = 'block';
-              spanNew.innerHTML = '-'
-            }
-            else{
-              resultsNew.style.display = 'none';
-              spanNew.innerHTML = '+'
-            }
-          }
-        }
       }//end of THE IF STATEMENT
       else {
         Object.keys(value).forEach((item, index) => {
@@ -189,27 +170,27 @@ document.addEventListener('DOMContentLoaded', () => {
           liData.innerHTML = value[item];
           liParent.appendChild(liData);
         });
-
-        if ((sessionStorage.value != null) || (sessionStorage.value != '')){
-          document.getElementById('clientNew').onclick = function(e) {
-            e.preventDefault();
-            let resultsNew = document.getElementById('displayUlNew');
-            let spanNew = document.getElementById('spanNew');
-
-            if (resultsNew.style.display == 'none'){
-              resultsNew.style.display = 'block';
-              spanNew.innerHTML = '-'
-            }
-            else{
-              resultsNew.style.display = 'none';
-              spanNew.innerHTML = '+'
-            }
-          }
-        }
       }//END OF THE ELSE STATEMENT
 
+      let getNew = document.getElementById('clientNew');
 
+      if (getNew){
+        getNew.onclick = function(e) {
+          e.preventDefault();
+          let resultsNew = document.getElementById('displayTableNew');
+          let spanNew = document.getElementById('spanNew');
 
+          if (resultsNew.style.display == 'none'){
+            resultsNew.style.display = 'block';
+            spanNew.innerHTML = '-'
+          }
+          else{
+            resultsNew.style.display = 'none';
+            spanNew.innerHTML = '+'
+          }
+        }
+      }
+      
       document.getElementById('clientOne').onclick = function(e) {
         e.preventDefault();
         let resultsOne = document.getElementById('displayUlOne');
