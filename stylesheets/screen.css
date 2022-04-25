@@ -21,14 +21,18 @@ header{
   border-bottom: #ff1919 solid 0.2em;
 }
 
-header > img {
+header img {
   float: left;
   width: 100px;
   height: 100px;
-  background: #555;
+  background: white;
 }
 
-header > h1 {
+nav img{
+  display: none;
+}
+
+header h1 {
   text-align: center;
   font-size: 2em;
   position: relative;
