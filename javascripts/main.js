@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.keys(value).forEach((item, index) => {
           if (index === 0){
             console.log("executing for name creation");
+            console.log(value, value[item], index);
             let h3 = document.createElement('h3')
             h3.setAttribute('id', 'clientNew');
             h3.innerHTML = value[item];
@@ -117,8 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           if ((value[item] === null) || (value[item] === '')){
             console.log(item, "-- Skipping item, left blank or non-applicable")
+            // console.log(value, value[item], index);
             return;
           }
+
           //append table after title creation
           container.appendChild(table);
 
@@ -172,6 +175,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }//END OF THE ELSE STATEMENT
 
+/*
+A better way to do drop downs - sample for this app as a more real version
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .expandable {
+            max-width: 600px;
+        }
+        .expandable-headline {
+            color:#fff;
+            background-color: #cc0000;
+            margin: 20px 0 0;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+        }
+        .expandable-headline::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+        }
+        .expandable-content {
+            background-color: #ddd;
+            padding: 20px;
+            display: none;
+        }
+        .open .expandable-headline::after {
+            content: '-';
+        }
+
+        .open .expandable-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="expandable">
+        <h3 class="expandable-headline">Here is my Headline</h3>
+        <div class="expandable-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis velit illo repellat, officiis ratione debitis magnam quaerat totam voluptas, aliquid tenetur alias omnis sunt cum. Magnam asperiores vitae atque maiores?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis velit illo repellat, officiis ratione debitis magnam quaerat totam voluptas, aliquid tenetur alias omnis sunt cum. Magnam asperiores vitae atque maiores?</p>
+        </div>
+    </div>
+
+    <div class="expandable">
+        <h3 class="expandable-headline">Here is my Headline</h3>
+        <div class="expandable-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis velit illo repellat, officiis ratione debitis magnam quaerat totam voluptas, aliquid tenetur alias omnis sunt cum. Magnam asperiores vitae atque maiores?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis velit illo repellat, officiis ratione debitis magnam quaerat totam voluptas, aliquid tenetur alias omnis sunt cum. Magnam asperiores vitae atque maiores?</p>
+        </div>
+    </div>
+
+    <script>
+        let ex = document.getElementsByClassName('expandable');
+
+        for (let i = 0; i < ex.length; i++) {
+            ex[i].getElementsByClassName('expandable-headline')[0].addEventListener('click', (evt) => {
+                //console.log(evt.target);
+                evt.target.parentNode.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
+
+*/
       let getNew = document.getElementById('clientNew');
 
       if (getNew){
@@ -190,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       }
-      
+
       document.getElementById('clientOne').onclick = function(e) {
         e.preventDefault();
         let resultsOne = document.getElementById('displayUlOne');

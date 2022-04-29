@@ -75,6 +75,14 @@ nav li:hover{
   background-color: red;
 }
 
+.help {
+  display: none;
+}
+.clientForm span {
+  color: red;
+  font-size: 1em;
+}
+
 h2{
   border-top: outset 0.1em;
   padding-top: 0.4em;
