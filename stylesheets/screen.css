@@ -157,6 +157,22 @@ body{
   flex-direction: column;
 }
 
+#submit{
+  background: #0066A2;
+  color: white;
+  border-style: outset;
+  border-color: #0066A2;
+  margin-top: 1em;
+  margin-left: 9em;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  text-shadow: none;
+}
+#submit:hover{
+  cursor: pointer;
+}
+
 footer{
   margin-top: auto;
   bottom: 0;

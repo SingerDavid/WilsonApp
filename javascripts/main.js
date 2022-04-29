@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
       }
 
+      window.alert('Thank you for submitting! A fitter will contact you shortly.');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       /*
       fetch('http://localhost:8080/fitter/index.html')
         .then(res => res.text())
